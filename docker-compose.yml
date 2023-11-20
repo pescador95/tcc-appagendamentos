@@ -1,0 +1,74 @@
+version: "3.3"
+
+services:
+  db:
+    container_name: tcc-db
+    image: pescador95/tcc-agendamento:db
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+    build:
+      context: ./postgres
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "5433:5433"
+    networks:
+      - internal-network
+
+  redis:
+    container_name: tcc-redis
+    image: pescador95/tcc-agendamento:redis
+    build:
+      context: ./redis
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./redis/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+    networks:
+      - internal-network
+
+  backend:
+    container_name: tcc-backend
+    image: pescador95/tcc-agendamento:quarkus
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - internal-network
+
+  telegram:
+    container_name: tcc-telegram
+    image: pescador95/tcc-agendamento:telegram
+    build:
+      context: ./telegram
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    networks:
+      - internal-network
+
+  whatsapp:
+    container_name: tcc-whatsapp
+    image: pescador95/tcc-agendamento:whatsapp
+    build:
+      context: ./whatsapp
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    networks:
+      - internal-network
+
+# ----- NETWORK -----
+networks:
+  internal-network:
+    driver: bridge

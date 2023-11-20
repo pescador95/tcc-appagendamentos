@@ -1,0 +1,29 @@
+INSERT INTO ROLE (
+  ID,
+  PRIVILEGIO,
+  ADMIN
+) VALUES (
+  1,
+  'usuario',
+  FALSE
+);
+
+INSERT INTO ROLE (
+  ID,
+  PRIVILEGIO,
+  ADMIN
+) VALUES (
+  2,
+  'bot',
+  FALSE
+);
+
+INSERT INTO ROLE (
+  ID,
+  PRIVILEGIO,
+  ADMIN
+) VALUES (
+  3,
+  'admin',
+  TRUE
+);

@@ -1,0 +1,41 @@
+const endpoints = {
+  login: {
+    refresh: "/auth/refresh",
+    auth: "/auth",
+  },
+  pessoa: {
+    getByPhone: (telefone) => `/pessoa/phone?telefone=${telefone}`,
+    getByCPF: (cpf) => `/pessoa/cpf?cpf=${cpf}`,
+    getByIdent: (ident) => `/pessoa/ident?ident=${ident}`,
+    createPessoa: `/pessoa/bot/create`,
+    sendNotification: `/enviarLembrete/:id`,
+  },
+  agendamento: {
+    listarPessoaAgendamentos: (reagendar) =>
+      `/agendamento/bot/listar/meusAgendamentos?reagendar=${reagendar}`,
+    listarAgendamentos: (reagendar) =>
+      `/agendamento/bot/listar?reagendar=${reagendar}`,
+    marcarAgendamento: "/agendamento/bot/marcar",
+    remarcarAgendamento: "/agendamento/bot/remarcar",
+    verificarDataAgendamento: "/agendamento/bot/verificarData",
+  },
+  organizacao: {
+    listaOrganizacoes: "/organizacao/bot/",
+  },
+  tipoAgendamentos: {
+    listarTipoAgendamentos: (organizacoes) =>
+      `/tipoAgendamento/bot?organizacoes=${organizacoes}`,
+  },
+  profissional: {
+    listaProfissionais: (
+      organizacao,
+      dataAgendamento,
+      tipoAgendamento,
+      profissional,
+      comPreferencia
+    ) =>
+      `/usuario/bot?organizacao=${organizacao}&dataAgendamento=${dataAgendamento}&tipoAgendamento=${tipoAgendamento}&profissional=${profissional}&comPreferencia=${comPreferencia}`,
+  },
+};
+
+module.exports = endpoints;

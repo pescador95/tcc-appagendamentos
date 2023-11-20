@@ -1,0 +1,53 @@
+INSERT INTO PESSOA (
+  ID,
+  NOME,
+  CPF,
+  GENEROID,
+  DATANASCIMENTO,
+  CELULAR,
+  TELEFONE,
+  EMAIL,
+  ATIVO,
+  DATAACAO
+) VALUES (
+  1,
+  'João da Silva',
+  '09304045316',
+  1,
+  NOW(),
+  '45991000000',
+  '4533110000',
+  'desafiozoo2022@gmail.com',
+  TRUE,
+  NOW()
+);
+
+INSERT INTO PESSOA (
+  ID,
+  CELULAR,
+  CPF,
+  DATAACAO,
+  DATANASCIMENTO,
+  EMAIL,
+  ATIVO,
+  NOME,
+  SYSTEMDATEDELETED,
+  TELEFONE,
+  GENEROID,
+  USUARIOID,
+  TELEGRAMID
+) VALUES(
+  2,
+  '45991330277',
+  '09304045315',
+  '2023-05-14 09:20:42.318',
+  '2023-05-14 09:20:42.318',
+  'iedio_junior@hotmail.com',
+  TRUE,
+  'iédio Júnior',
+  NULL,
+  '4533110000',
+  1,
+  NULL,
+  1376688519
+);

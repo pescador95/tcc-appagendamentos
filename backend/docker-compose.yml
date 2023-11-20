@@ -1,0 +1,19 @@
+version: "3.3"
+
+services:
+  backend:
+    container_name: tcc-backend
+    image: pescador95/tcc-agendamento:quarkus
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file:
+      - ./backend.env
+    ports:
+      - "3000:3000"
+    networks:
+      - internal-network
+
+networks:
+  internal-network:
+    driver: bridge

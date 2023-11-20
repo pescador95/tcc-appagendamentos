@@ -1,0 +1,67 @@
+name: Build Tests and Merge to Main
+
+on:
+  push:
+    branches:
+      - release
+
+jobs:
+  db:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy .env.example
+        run: cp .env.example .env
+
+      - name: Build Postgres Database Container
+        run: docker-compose -f docker-compose.yml build db
+
+  redis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy .env.example
+        run: cp .env.example .env
+
+      - name: Build Postgres Database Container
+        run: docker-compose -f docker-compose.yml build redis
+
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy .env.example
+        run: cp .env.example .env
+
+      - name: Build Quarkus Backend Container
+        run: docker-compose -f docker-compose.yml build backend
+
+  telegram:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy .env.example
+        run: cp .env.example .env
+
+      - name: Build API Telegram Container
+        run: docker-compose -f docker-compose.yml build telegram
+
+  whatsapp:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy .env.example
+        run: cp .env.example .env
+
+      - name: Build API Whatsapp Container
+        run: docker-compose -f docker-compose.yml build whatsapp

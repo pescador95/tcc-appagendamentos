@@ -1,0 +1,117 @@
+INSERT INTO AGENDAMENTO (
+	ID,
+	DATAACAO,
+	DATAAGENDAMENTO,
+	HORARIOAGENDAMENTO,
+	ATIVO,
+	COMPREFERENCIA,
+	NOMEPESSOA,
+	NOMEPROFISSIONAL,
+	SYSTEMDATEDELETED,
+	ORGANIZACAOID,
+	PESSOAID,
+	PROFISSIONALID,
+	STATUSAGENDAMENTOID,
+	TIPOAGENDAMENTOID,
+	USUARIOID
+) VALUES (
+	1,
+	current_timestamp,
+	current_date,
+	'11:00:00',
+	TRUE,
+	FALSE,
+	'João da Silva',
+	'João da Silva',
+	NULL,
+	1,
+	1,
+	1,
+	1,
+	1,
+	NULL
+),
+(
+	2,
+	current_timestamp,
+	current_date,
+	'10:00:00',
+	TRUE,
+	FALSE,
+	'João da Silva',
+	'João da Silva',
+	NULL,
+	2,
+	1,
+	2,
+	1,
+	1,
+	NULL
+);
+
+INSERT INTO AGENDAMENTO (
+	ID,
+	DATAACAO,
+	DATAAGENDAMENTO,
+	HORARIOAGENDAMENTO,
+	ATIVO,
+	COMPREFERENCIA,
+	NOMEPESSOA,
+	NOMEPROFISSIONAL,
+	SYSTEMDATEDELETED,
+	ORGANIZACAOID,
+	PESSOAID,
+	PROFISSIONALID,
+	STATUSAGENDAMENTOID,
+	TIPOAGENDAMENTOID,
+	USUARIOID
+) VALUES (
+	3,
+	current_timestamp,
+	current_date,
+	'13:00:00',
+	TRUE,
+	FALSE,
+	'João da Silva',
+	'João da Silva',
+	NULL,
+	1,
+	1,
+	1,
+	1,
+	1,
+	NULL
+),
+(
+	4,
+	current_timestamp,
+	current_date,
+	'14:00:00',
+	TRUE,
+	FALSE,
+	'João da Silva',
+	'João da Silva',
+	NULL,
+	2,
+	1,
+	2,
+	1,
+	1,
+	NULL
+);
+
+INSERT INTO TIPOAGENDAMENTOUSUARIOS (
+	PROFISSIONALID,
+	TIPOAGENDAMENTOID
+) VALUES (
+	2,
+	1
+);
+
+INSERT INTO TIPOAGENDAMENTOUSUARIOS (
+	PROFISSIONALID,
+	TIPOAGENDAMENTOID
+) VALUES (
+	1,
+	1
+);

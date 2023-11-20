@@ -1,0 +1,17 @@
+version: "3.3"
+
+services:
+  whatsapp:
+    container_name: tcc-whatsapp
+    image: pescador95/tcc-agendamento:whatsapp
+    build:
+      context: ./whatsapp
+      dockerfile: Dockerfile
+    env_file:
+      - ./whatsapp.env
+    networks:
+      - internal-network
+
+networks:
+  internal-network:
+    driver: bridge
